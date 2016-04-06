@@ -2,11 +2,13 @@
 
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { Router } from 'react-router';
+import { Router, Route } from 'react-router';
 import invariant from 'invariant';
-import routes from '../routes';
+//import configRoutes from '../routes';
+import MainLayout from '../layouts/main';
+import RegistrationsNew from '../views/registrations/new';
 
-export default class Root extends Component {
+class Root extends Component {
   render(){
     return (
       <Provider store={this.props.store}>
@@ -15,7 +17,7 @@ export default class Root extends Component {
     )
   }
   //ensures that there is a router history before trying to render the router
-  _renderRouter() {
+  _renderRouter = () => {
     //invariant(condition, message)
     invariant(
       this.props.routerHistory,
@@ -24,8 +26,12 @@ export default class Root extends Component {
 
     return (
       <Router history={this.props.routerHistory}>
-        { routes }
+        <Route component={MainLayout}>
+          <Route path='/' component={RegistrationsNew} />
+        </Route>
       </Router>
     );
   }
 }
+
+export default Root;

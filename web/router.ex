@@ -20,6 +20,8 @@ defmodule PhoenixTrello.Router do
     #manage routing on the front end, so tell Phoenix
     #to handle any http request through the index action of the PageController
     #which renders the main layout and the Root component
+    #note that using hashhistory might be an option
+    #but here, all paths will render the index.html
     get "*path", PageController, :index
   end
 
