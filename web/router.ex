@@ -29,4 +29,21 @@ defmodule PhoenixTrello.Router do
   # scope "/api", PhoenixTrello do
   #   pipe_through :api
   # end
+
+  #create the :api pipeline and the first route
+  pipeline :api do
+    plug :accepts, ["json"]
+  end
+
+  #any post request to /api/v1/registrations will be processed by the
+  #create action of the RegistrationController accepting JSON
+  scope "/api", PhoenixTrello do
+    pipe_through :api #use the api stacks
+
+    scope "/v1" do
+      post "/registrations", RegistrationController, :create
+    end
+
+  end
+
 end
