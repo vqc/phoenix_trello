@@ -20,6 +20,7 @@ defmodule PhoenixTrello.User do
   #make the password field required
   @required_fields ~w(first_name last_name email password)
   @optional_fields ~w(encrypted_password)
+  @derive {Poison.Encoder, only: [:id, :first_name, :last_name, :email]}
 
   @doc """
   Creates a changeset based on the `model` and `params`.

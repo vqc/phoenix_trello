@@ -41,7 +41,9 @@ defmodule PhoenixTrello.Mixfile do
      {:cowboy, "~> 1.0"},
      #add comeonin password hashing library
      #don't forget to install with mix deps.get
-     {:comeonin, "~> 2.0"}
+     {:comeonin, "~> 2.0"},
+     #handle user auth and jwt generation
+     {:guardian, " ~> 0.9.0"}, #then run mix deps.get and then config in config.exs
    ]
   end
 
