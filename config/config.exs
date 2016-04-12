@@ -33,4 +33,6 @@ config :guardian, Guardian,
   issuer: "PhoenixTrello",
   ttl: { 3, :days},
   verify_issuer: true,
+  #generate secret key with 'mix phoenix.gen.secret'
+  secret_key: "Blbt1P/pPaUehyOJvuoSlI5e0tYTjK4NGKRDJZpv4+h8ZP6PfgmWUJFfr9/FiX3O"
   serializer: PhoenixTrello.GuardianSerializer
